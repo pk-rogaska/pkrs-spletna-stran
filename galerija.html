@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="sl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Galerija — Plezalni klub Rogaška Slatina</title>
+<meta name="description" content="Fotogalerija Plezalnega kluba Rogaška Slatina.">
+<meta name="theme-color" content="#E67104">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/favicon-192.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="Plezalni klub Rogaška Slatina">
+    </a>
+    <nav class="nav-links" aria-label="Glavna navigacija">
+      <a href="index.html">Domov</a>
+      <a href="zgodovina.html">Zgodovina</a>
+      <a href="urnik.html">Urnik</a>
+      <a href="novice.html">Novice</a>
+      <a href="galerija.html" aria-current="page">Galerija</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="hamburger" data-menu-open aria-label="Odpri meni">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <div class="mobile-menu-top">
+    <a href="index.html" class="brand">
+      <img src="assets/img/logo.png" alt="Plezalni klub Rogaška Slatina">
+    </a>
+    <button class="hamburger" data-menu-close aria-label="Zapri meni">✕</button>
+  </div>
+  <a href="index.html">Domov</a>
+  <a href="zgodovina.html">Zgodovina</a>
+  <a href="urnik.html">Urnik</a>
+  <a href="novice.html">Novice</a>
+  <a href="galerija.html" aria-current="page">Galerija</a>
+  <a href="kontakt.html">Kontakt</a>
+  <a href="kontakt.html" class="btn btn-primary">Kontaktiraj nas</a>
+</div>
+
+<main>
+
+  <div class="page-header">
+    <div class="container">
+      <div class="breadcrumb"><a href="index.html">Domov</a> / Galerija</div>
+      <h1>Galerija</h1>
+      <p class="lead">Foto albumi s treningov, tekmovanj in dogodkov kluba.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="eyebrow">Izbor</div>
+      <h2>Izbrane fotografije</h2>
+      <p class="lead">Peščica najlepših posnetkov, ki se naložijo hitro tudi na počasnejši povezavi.</p>
+
+      <div class="todo-block" data-featured-empty hidden style="margin:1.5rem 0">
+        <strong>Izbrane fotografije še niso dodane</strong>
+        Ko nam pošljete nekaj najboljših fotografij, jih optimiziramo (glejte <code>tools/optimiziraj-slike.py</code>
+        v paketu) in se prikažejo tukaj. Navodila so v <code>NAVODILA.txt</code>.
+      </div>
+
+      <div class="featured-grid" data-featured-grid></div>
+      <div class="text-center" style="margin-top:1.5rem">
+        <button type="button" class="btn btn-outline" data-load-more hidden>Naloži več fotografij</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="eyebrow">Arhiv</div>
+      <h2>Celotni albumi</h2>
+      <p class="lead">Za polno ločljivost in celoten arhiv (tudi več sto fotografij na album) odpremo zunanji deljeni album — tako stran ostane hitra.</p>
+
+      <div class="albums-grid" data-albums-grid>
+        <p class="small">Nalagam albume …</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="assets/img/logo-icon.png" alt="Logotip kluba">
+        <strong>Plezalni klub Rogaška Slatina</strong>
+      </div>
+      <p style="color:rgba(255,255,255,0.7); max-width:32ch">Plezanje za otroke, mladino in vse ljubitelje športa v Rogaški Slatini.</p>
+    </div>
+    <div>
+      <h4>Kontakt</h4>
+      <div class="footer-contact-row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 5-2 1.5a12 12 0 0 0 5.5 5.5L15 14l5 1.5V19a2 2 0 0 1-2 2C10.5 21 3 13.5 3 6a2 2 0 0 1 2-2z"/></svg><a href="tel:+38631206821">+386 31 206 821 - Mitja</a></div>
+      <div class="footer-contact-row"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 6.5l9 6 9-6"/></svg><a href="mailto:plezalniklub.rogaskaslatina@gmail.com">plezalniklub.rogaskaslatina@gmail.com</a></div>
+    </div>
+    <div>
+      <h4>Sledite nam</h4>
+      <div class="social-row-lg">
+        <a href="https://www.facebook.com/pkrs.rogaska" target="_blank" rel="noopener" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V8a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="https://www.instagram.com/pkrs.rogaska/?hl=en" target="_blank" rel="noopener" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    © <span id="year"></span> Tomaž Petek Frišek za PKRS. Vse pravice pridržane.
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/gallery.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

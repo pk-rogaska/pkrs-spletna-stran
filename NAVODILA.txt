@@ -1,0 +1,159 @@
+PLEZALNI KLUB ROGAŠKA SLATINA — SPLETNA STRAN
+================================================
+Kratka navodila za samostojno urejanje in objavo strani.
+
+
+1) KAJ JE V TEM PAKETU
+------------------------
+index.html        -> Domov
+zgodovina.html     -> Zgodovina
+urnik.html         -> Urnik in cenik
+novice.html        -> Novice
+galerija.html      -> Galerija
+kontakt.html        -> Kontakt
+
+assets/css/style.css  -> videz strani (barve, pisave, postavitev)
+assets/js/main.js     -> mobilni meni in karusel na Domov strani
+assets/js/gallery.js  -> logika galerije (izbrane fotografije, albumi, povečan prikaz)
+assets/img/           -> logotip in slike
+assets/data/featured-photos.json -> seznam "izbranih" fotografij (glej razdelek 2)
+assets/data/albums.json          -> seznam albumov in povezav do zunanjih arhivov (glej razdelek 2)
+tools/optimiziraj-slike.py       -> pripomoček za pripravo fotografij (glej razdelek 2)
+
+Stran je "statična" — sestavljena je samo iz HTML/CSS/JS datotek, brez
+posebnega programa ali baze podatkov v ozadju. To pomeni, da jo lahko
+naložite na skoraj kateri koli hosting (npr. Hostinger) tako, da preprosto
+prekopirate vse datoteke in mape v korensko mapo (public_html) svojega
+hostinga.
+
+
+2) KAKO DODAM FOTOGRAFIJE (imate jih 1000+ — pomembno za hitrost strani!)
+------------------------------------------------------------------------
+Ker ima klub zelo veliko fotografij, galerija NE nalaga vseh naenkrat — to bi
+stran zelo upočasnilo. Namesto tega uporablja dva ločena sklopa:
+
+  A) "IZBRANE FOTOGRAFIJE" — peščica najboljših posnetkov (npr. 20-60), ki so
+     posebej stisnjene in optimizirane ter dejansko živijo na vaši strani
+     (galerija.html + vrtiljak na Domov strani). Nalagajo se leno (šele ko
+     jih obiskovalec doskrola do njih) in v sklopih ("Naloži več").
+
+  B) "CELOTNI ALBUMI" — za vse ostalo (cele mape s stotinami ali tisoči
+     fotografij, npr. pretekle sezone, tabori, tekmovanja) stran samo prikaže
+     naslovnico in gumb, ki vodi na ZUNANJI deljeni album (npr. Google
+     Photos). Tam so slike v polni ločljivosti, brez obremenitve vaše strani.
+
+--- A) Dodajanje izbranih fotografij ---
+
+1. Izberite mapo z 20-60 najboljšimi fotografijami (izvirniki, poljubna
+   velikost — skript jih sam pomanjša in stisne).
+2. V terminalu, v korenski mapi te spletne strani, poženite:
+
+     pip install pillow --break-system-packages
+     python3 tools/optimiziraj-slike.py izbrane /pot/do/mape/s/fotografijami
+
+3. Skript iz vsake fotografije naredi majhno sličico in nekoliko večjo
+   "polno" verzijo (obe v formatu WebP — manjše datoteke, enaka kakovost) ter
+   ju samodejno vpiše v assets/data/featured-photos.json. Galerija in
+   vrtiljak na Domov strani ju bosta takoj prikazala — ni potrebno urejati
+   HTML-ja.
+4. Po želji v assets/data/featured-photos.json ročno popravite polje "alt"
+   pri vsaki fotografiji (kratek opis za bralnike zaslona/iskalnike). Zaradi
+   zasebnosti otrok priporočamo splošne opise (npr. "Trening, oktober 2026")
+   namesto imen in priimkov.
+5. Skript lahko poganjate večkrat (npr. po vsakem treningu) — nove
+   fotografije se dodajo k obstoječim, stare ostanejo.
+
+--- B) Dodajanje/urejanje celotnih albumov ---
+
+Seznam albumov je v datoteki assets/data/albums.json — vsak zapis ima ime,
+neobvezno naslovnico in povezavo do zunanjega albuma:
+
+     {
+       "name": "Boč 2010",
+       "cover": "",
+       "link": "https://photos.app.goo.gl/xxxxxxxx"
+     }
+
+- POVEZAVA: v Google Photos (ali podobnem servisu) ustvarite album, naložite
+  fotografije, nato uporabite "Deli" -> "Ustvari povezavo" in prilepite
+  povezavo v polje "link". Trenutni albumi (Albarracin in Chulilla, Boč 2010,
+  Mačkovec 2018, 15. Obletnica PKRS, Istra 2017, Tekma otroci 2015, Chironico
+  Cresciano 2015, Petrohrad 2015, Oplotnica 2015, Fontainebleau 2015, Istra
+  2015, Bolder tekma 2014, Fontainebleau 2014, Maltatal 2014, Trenta 2014,
+  Razno 2014, Čreta 2014, Istra 2013) že imajo prave povezave, ki ste nam jih
+  poslali — te lahko kadar koli zamenjate ali dodate nove albume tako, da
+  kopirate cel blok { ... } in ga prilepite v seznam (ne pozabite na vejico
+  med zapisi).
+- NASLOVNICA (neobvezno, a priporočeno): izberite eno lepo fotografijo iz
+  albuma in poženite:
+
+     python3 tools/optimiziraj-slike.py naslovnica "Boč 2010" /pot/do/slike.jpg
+
+  (ime albuma v narekovajih se mora ujemati z imenom v albums.json). Če
+  naslovnice ne dodate, se prikaže preprosta ikona mape namesto slike — stran
+  deluje enako dobro.
+- Dokler je "link" prazen, se album prikaže kot "Povezava bo dodana kmalu"
+  in ni klikljiv.
+
+Ta pristop pomeni, da vam za sprotno dodajanje fotografij s treningov sploh
+ni treba urejati kode — po vsakem treningu preprosto naložite fotografije v
+telefonu v ustrezen Google Photos album (ali nam jih pošljete, da jih
+dodamo mi).
+
+
+3) KAKO DODAM NOVO NOVICO
+----------------------------
+V datoteki novice.html poiščite blok, ki se začne z <article class="news-item">
+in konča z </article>. Celoten blok kopirajte, ga prilepite NAD prvi
+obstoječi blok (novice se prikazujejo od najnovejše proti najstarejši),
+nato spremenite datum, naslov in besedilo. Odstranite oznako
+<span class="news-tag">Primer novice</span>, ko vstavite pravo novico.
+
+Če želite najnovejšo novico prikazati tudi na Domov strani (index.html),
+v razdelku "Zadnje novice" ročno posodobite tudi tam prikazana dva zapisa.
+
+
+4) KAKO UREDIM ZGODOVINO KLUBA
+----------------------------------
+V datoteki zgodovina.html poiščite oranžen okvir z naslovom "To vsebino je
+treba še dopolniti" (razred todo-block) in ga zamenjajte s pravim
+besedilom o zgodovini kluba. Predlagana struktura (Začetki / Razvoj /
+Uspehi / Danes) je navedena spodaj v isti datoteki.
+
+
+5) UREJANJE URNIKA, CENIKA IN ZEMLJEVIDA
+--------------------------------------------
+Urnik in cenik: v urnik.html poiščite <table class="schedule"> in uredite
+besedilo v celicah <td>.
+
+Zemljevid: trenutno prikazuje splošno iskanje po imenu kluba. Če želite
+prikazati točno lokacijo, v urnik.html in kontakt.html zamenjajte del
+"Plezalni+klub+Rogaška+Slatina" v naslovu iframe (src="...") s točnim
+naslovom telovadnice/stene, npr. "Ulica+1+Rogaška+Slatina". Gumb "Odpri v
+Google Zemljevidih" že vodi na točno lokacijo, ki ste jo poslali
+(https://maps.app.goo.gl/kspMgjcC7jbkddGq5).
+
+
+6) BARVE IN VIDEZ
+---------------------
+Vse barve so zbrane na vrhu datoteke assets/css/style.css v razdelku
+":root" (npr. --orange: #E67104;). Če želite spremeniti odtenek oranžne
+ali druge barve, jih spremenite tam — sprememba se samodejno uporabi na
+vseh straneh.
+
+
+7) OBJAVA NA HOSTINGERJU (ALI DRUGEM HOSTINGU)
+--------------------------------------------------
+1. Prijavite se v svoj hosting račun (npr. Hostinger -> File Manager,
+   ali prek FTP programa kot je FileZilla).
+2. Odprite mapo public_html (ali korensko mapo vaše domene).
+3. Naložite VSE datoteke in mape iz tega paketa (index.html, ostale .html
+   datoteke, assets/ mapo in NAVODILA.txt) neposredno v to mapo — tako,
+   da je index.html na vrhu, ne v podmapi.
+4. Obiščite svojo domeno v brskalniku — stran bi morala takoj delovati,
+   brez dodatne namestitve ali baze podatkov.
+
+
+Če boste želeli pomoč pri objavi na GitHub + Hostinger verigi ali pri
+kakršni koli nadaljnji nadgradnji strani (npr. obrazec za prijave), nam
+samo sporočite.
