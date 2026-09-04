@@ -907,7 +907,7 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
 .site-footer a { color: rgba(226,230,240,0.82); }
 .site-footer a:hover { color: var(--orange); }
 .footer-brand { display: flex; align-items: center; gap: 0.6em; margin-bottom: 0.8em; }
-.footer-brand img { height: 30px; }
+.footer-brand img { height: 30px; width: auto; }
 
 .footer-contact-row {
   display: flex;
