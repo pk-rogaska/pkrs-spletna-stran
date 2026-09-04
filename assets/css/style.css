@@ -773,12 +773,12 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
 /* ---------- Contact (Kontakt) ---------- */
 .contact-hero-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.75rem;
   align-items: stretch;
 }
 @media (min-width: 900px) {
-  .contact-hero-grid { grid-template-columns: 0.85fr 1fr; gap: 2.25rem; }
+  .contact-hero-grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr); gap: 2.25rem; }
 }
 
 .contact-info-card {
@@ -801,6 +801,7 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
   display: flex;
   align-items: flex-start;
   gap: 1rem;
+  min-width: 0;
 }
 .contact-info-icon {
   width: 44px;
@@ -812,8 +813,9 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
   align-items: center;
   justify-content: center;
 }
+.contact-info-row > div { min-width: 0; }
 .contact-info-label { font-weight: 700; margin-bottom: 0.2em; }
-.contact-info-value { color: rgba(255,255,255,0.9); }
+.contact-info-value { color: rgba(255,255,255,0.9); overflow-wrap: break-word; }
 .contact-info-value a { color: var(--white); text-decoration: underline; text-underline-offset: 2px; }
 .contact-info-value a:hover { color: rgba(255,255,255,0.8); }
 
@@ -843,11 +845,11 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
 .contact-form { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
 .form-grid-2 {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.2rem;
 }
 @media (min-width: 560px) {
-  .form-grid-2 { grid-template-columns: 1fr 1fr; }
+  .form-grid-2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 .form-field { display: flex; flex-direction: column; gap: 0.5em; }
 .form-field label { font-weight: 700; font-size: 14px; }
