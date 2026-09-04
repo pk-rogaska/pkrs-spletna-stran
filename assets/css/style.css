@@ -59,6 +59,25 @@ a:hover { text-decoration: underline; text-underline-offset: 2px; }
   border-radius: 2px;
 }
 
+/* Preskoči na vsebino: skrito, dokler ni v fokusu (tipkovnica) */
+.skip-link {
+  position: absolute;
+  top: -50px;
+  left: 1rem;
+  z-index: 1000;
+  background: var(--ink);
+  color: var(--white) !important;
+  padding: 0.7em 1.2em;
+  border-radius: 0 0 10px 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none !important;
+  transition: top .15s ease;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 /* Spoštuj uporabnikovo nastavitev za manj gibanja */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

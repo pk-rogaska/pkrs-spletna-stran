@@ -180,10 +180,13 @@ document.addEventListener('DOMContentLoaded', function () {
         var photos = (Array.isArray(data) ? data : []).slice(0, 6);
         if (photos.length === 0) return; // ohrani statične placeholder slide iz HTML-ja
         track.innerHTML = '';
-        photos.forEach(function (photo) {
+        photos.forEach(function (photo, i) {
           var slide = document.createElement('div');
           slide.className = 'carousel-slide';
-          slide.innerHTML = '<img src="' + (photo.full || photo.thumb) + '" alt="' + (photo.alt || '') + '" loading="lazy">';
+          // Prva slika karusela je takoj vidna (nad pregibom), zato naj se naloži
+          // takoj (brez loading="lazy" in z visoko prioriteto); ostale pa leno.
+          var loadAttr = i === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
+          slide.innerHTML = '<img src="' + (photo.full || photo.thumb) + '" alt="' + (photo.alt || '') + '" ' + loadAttr + '>';
           track.appendChild(slide);
         });
         // znova sproži inicializacijo karusela iz main.js

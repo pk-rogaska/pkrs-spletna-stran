@@ -45,9 +45,9 @@ FEATURED_FULL_DIR = ROOT / "assets" / "img" / "galerija" / "featured" / "full"
 ALBUM_COVER_DIR = ROOT / "assets" / "img" / "galerija" / "albums"
 
 THUMB_WIDTH = 500
-FULL_MAX_DIM = 1600
+FULL_MAX_DIM = 1400
 THUMB_QUALITY = 72
-FULL_QUALITY = 80
+FULL_QUALITY = 74
 COVER_WIDTH = 600
 COVER_QUALITY = 72
 
