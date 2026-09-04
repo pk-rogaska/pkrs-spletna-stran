@@ -495,12 +495,8 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
   .schedule-day-name {
     padding-bottom: 0;
     border-bottom: 0;
-    padding-top: 0.6em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-top: 0.15em;
     text-align: center;
-    align-self: stretch;
   }
 }
 .schedule-day-sessions {
