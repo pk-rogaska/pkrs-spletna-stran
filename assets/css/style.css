@@ -707,11 +707,6 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
   border-radius: 10px;
   object-fit: contain;
 }
-.lightbox figcaption {
-  color: rgba(255,255,255,0.85);
-  font-size: 14px;
-  text-align: center;
-}
 .lightbox-close, .lightbox-nav {
   position: absolute;
   border: 0;

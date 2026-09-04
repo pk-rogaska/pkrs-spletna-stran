@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var albumsSearch = document.querySelector('[data-albums-search]');
   var carousel = document.querySelector('[data-home-carousel]');
 
-  var lightbox, lightboxImg, lightboxCaption, lightboxIndex = -1;
+  var lightbox, lightboxImg, lightboxIndex = -1;
 
   function fetchJSON(url) {
     return fetch(url).then(function (r) {
@@ -85,11 +85,10 @@ document.addEventListener('DOMContentLoaded', function () {
     lightbox.innerHTML =
       '<button type="button" class="lightbox-close" aria-label="Zapri">✕</button>' +
       '<button type="button" class="lightbox-nav prev" aria-label="Prejšnja fotografija">‹</button>' +
-      '<figure><img alt=""><figcaption></figcaption></figure>' +
+      '<figure><img alt=""></figure>' +
       '<button type="button" class="lightbox-nav next" aria-label="Naslednja fotografija">›</button>';
     document.body.appendChild(lightbox);
     lightboxImg = lightbox.querySelector('img');
-    lightboxCaption = lightbox.querySelector('figcaption');
 
     lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
     lightbox.querySelector('.prev').addEventListener('click', function () { step(-1); });
@@ -120,7 +119,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!photo) return;
     lightboxImg.src = photo.full || photo.thumb;
     lightboxImg.alt = photo.alt || '';
-    lightboxCaption.textContent = photo.alt || '';
   }
 
   function step(dir) {
