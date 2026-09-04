@@ -3,6 +3,8 @@
 // (glej assets/data/featured-photos.json), celotni arhivi po albumih pa so povezave na
 // zunanje deljene albume (glej assets/data/albums.json). Tako stran ostane hitra tudi,
 // če ima klub v arhivu tisoče fotografij.
+// Karusel na Domov strani uporablja svoj, ročno izbran nabor slik
+// (glej assets/data/home-carousel.json) — ni nujno enak "Izbranim fotografijam".
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -242,9 +244,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!carousel) return;
     var track = carousel.querySelector('.carousel-track');
     if (!track) return;
-    fetchJSON('assets/data/featured-photos.json')
+    fetchJSON('assets/data/home-carousel.json')
       .then(function (data) {
-        var photos = (Array.isArray(data) ? data : []).slice(0, 6);
+        var photos = Array.isArray(data) ? data : [];
         if (photos.length === 0) return; // ohrani statične placeholder slide iz HTML-ja
         track.innerHTML = '';
         photos.forEach(function (photo, i) {
