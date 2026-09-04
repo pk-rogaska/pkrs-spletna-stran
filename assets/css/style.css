@@ -985,10 +985,11 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
 /* ---------- Page header (subpages) ---------- */
 .page-header {
   background: var(--orange-light);
-  padding: clamp(2rem, 5vw, 3rem) 0;
+  padding: clamp(2.2rem, 6vw, 3.5rem) 0;
   border-bottom: 1px solid var(--border);
   animation: gentle-rise .45s ease both;
 }
+.page-header h1 { font-size: clamp(32px, 6.5vw, 54px); margin: 0; }
 .breadcrumb { font-size: 13px; color: var(--ink-soft); margin-bottom: 0.5em; }
 .breadcrumb a { color: var(--ink-soft); }
 
