@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var grid = document.querySelector('[data-featured-grid]');
   var emptyMsg = document.querySelector('[data-featured-empty]');
   var loadMoreBtn = document.querySelector('[data-load-more]');
-  var albumsGrid = document.querySelector('[data-albums-grid]');
+  var albumsContainer = document.querySelector('[data-albums-container]');
+  var albumsSearch = document.querySelector('[data-albums-search]');
   var carousel = document.querySelector('[data-home-carousel]');
 
   var lightbox, lightboxImg, lightboxCaption, lightboxIndex = -1;
@@ -134,38 +135,106 @@ document.addEventListener('DOMContentLoaded', function () {
 
   /* ---------------- Albumi (zunanje povezave) ---------------- */
 
+  function albumYear(name) {
+    var matches = name.match(/(19|20)\d{2}/g);
+    return matches ? matches[matches.length - 1] : null;
+  }
+
+  function buildAlbumCard(album) {
+    var hasLink = !!album.link;
+    var el = document.createElement(hasLink ? 'a' : 'div');
+    el.className = 'album-card';
+    el.setAttribute('data-album-name', album.name.toLowerCase());
+    if (hasLink) {
+      el.href = album.link;
+      el.target = '_blank';
+      el.rel = 'noopener';
+    } else {
+      el.classList.add('is-pending');
+    }
+    var coverHtml = album.cover
+      ? '<img src="' + album.cover + '" alt="" loading="lazy">'
+      : '<div class="album-card-ph"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"/></svg></div>';
+    el.innerHTML =
+      '<div class="album-card-cover">' + coverHtml + '</div>' +
+      '<div class="album-card-body">' +
+        '<span class="album-card-name">' + album.name + '</span>' +
+        (hasLink
+          ? '<span class="album-card-link">Poglej celoten album ↗</span>'
+          : '<span class="album-card-link is-muted">Povezava bo dodana kmalu</span>') +
+      '</div>';
+    return el;
+  }
+
+  function renderAlbums(albums) {
+    albumsContainer.innerHTML = '';
+    if (!albums.length) {
+      albumsContainer.innerHTML = '<p class="small">Albumi so v pripravi in bodo kmalu na voljo.</p>';
+      return;
+    }
+
+    var groups = {};
+    var order = [];
+    albums.forEach(function (album) {
+      var year = albumYear(album.name) || 'Ostalo';
+      if (!groups[year]) { groups[year] = []; order.push(year); }
+      groups[year].push(album);
+    });
+
+    order.sort(function (a, b) {
+      if (a === 'Ostalo') return 1;
+      if (b === 'Ostalo') return -1;
+      return Number(b) - Number(a);
+    });
+
+    order.forEach(function (year) {
+      var groupEl = document.createElement('div');
+      groupEl.className = 'albums-year-group';
+      groupEl.setAttribute('data-year-group', '');
+
+      var heading = document.createElement('h3');
+      heading.className = 'albums-year-heading';
+      heading.textContent = year;
+      groupEl.appendChild(heading);
+
+      var albumGrid = document.createElement('div');
+      albumGrid.className = 'albums-grid';
+      groups[year].forEach(function (album) {
+        albumGrid.appendChild(buildAlbumCard(album));
+      });
+      groupEl.appendChild(albumGrid);
+
+      albumsContainer.appendChild(groupEl);
+    });
+  }
+
+  function filterAlbums(query) {
+    var groups = albumsContainer.querySelectorAll('[data-year-group]');
+    groups.forEach(function (group) {
+      var cards = group.querySelectorAll('.album-card');
+      var anyVisible = false;
+      cards.forEach(function (card) {
+        var match = !query || card.getAttribute('data-album-name').indexOf(query) !== -1;
+        card.hidden = !match;
+        if (match) anyVisible = true;
+      });
+      group.hidden = !anyVisible;
+    });
+  }
+
   function initAlbums() {
-    if (!albumsGrid) return;
+    if (!albumsContainer) return;
     fetchJSON('assets/data/albums.json')
       .then(function (albums) {
-        albumsGrid.innerHTML = '';
-        (albums || []).forEach(function (album) {
-          var hasLink = !!album.link;
-          var el = document.createElement(hasLink ? 'a' : 'div');
-          el.className = 'album-card';
-          if (hasLink) {
-            el.href = album.link;
-            el.target = '_blank';
-            el.rel = 'noopener';
-          } else {
-            el.classList.add('is-pending');
-          }
-          var coverHtml = album.cover
-            ? '<img src="' + album.cover + '" alt="" loading="lazy">'
-            : '<div class="album-card-ph"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"/></svg></div>';
-          el.innerHTML =
-            '<div class="album-card-cover">' + coverHtml + '</div>' +
-            '<div class="album-card-body">' +
-              '<span class="album-card-name">' + album.name + '</span>' +
-              (hasLink
-                ? '<span class="album-card-link">Poglej celoten album ↗</span>'
-                : '<span class="album-card-link is-muted">Povezava bo dodana kmalu</span>') +
-            '</div>';
-          albumsGrid.appendChild(el);
-        });
+        renderAlbums(albums || []);
+        if (albumsSearch) {
+          albumsSearch.addEventListener('input', function () {
+            filterAlbums(albumsSearch.value.trim().toLowerCase());
+          });
+        }
       })
       .catch(function () {
-        albumsGrid.innerHTML = '<p class="small">Albumov trenutno ni bilo mogoče naložiti.</p>';
+        albumsContainer.innerHTML = '<p class="small">Albumov trenutno ni bilo mogoče naložiti.</p>';
       });
   }
 
