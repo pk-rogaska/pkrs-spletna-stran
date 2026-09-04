@@ -1,51 +1,247 @@
 [
-  {"name": "Trnovo in Trenta 2026", "cover": "", "link": "https://photos.app.goo.gl/ki5YFdzZ4snJ9FfR6"},
-  {"name": "15. Obletnica PKRS 2016", "cover": "", "link": "https://photos.app.goo.gl/61pJMQj37ckFyd7Q8"},
-  {"name": "Albarracin in Chulilla", "cover": "", "link": "https://photos.app.goo.gl/VFjUwY8nKesYMdK27"},
-  {"name": "Boč 2009", "cover": "", "link": "https://photos.app.goo.gl/9MDyqcgmEgiqXrV69"},
-  {"name": "Boč 2010", "cover": "", "link": "https://photos.app.goo.gl/X3DiVfcBuR2zw2uw7"},
-  {"name": "Boč 2011", "cover": "", "link": "https://photos.app.goo.gl/5pWBsWcbnXkaD5rK8"},
-  {"name": "Boč 2012", "cover": "", "link": "https://photos.app.goo.gl/irFQjvxzfVzRwEf99"},
-  {"name": "Bolder tekma 2012", "cover": "", "link": "https://photos.app.goo.gl/bJWe3nuPurUi45Ko9"},
-  {"name": "Bovec in Trenta 2010", "cover": "", "link": "https://photos.app.goo.gl/ariKmhcjtFt6Y8Mu9"},
-  {"name": "Buncove skale 2012", "cover": "", "link": "https://photos.app.goo.gl/6jHeSxTDGkFVfC1R6"},
-  {"name": "Burjakove peči", "cover": "", "link": "https://photos.app.goo.gl/VE7jaz5wwHg7osGi7"},
-  {"name": "Chironico Cresciano 2015", "cover": "", "link": "https://photos.app.goo.gl/uow3QuJEdAwfKRcr9"},
-  {"name": "Čreta 2014", "cover": "", "link": "https://photos.app.goo.gl/4nkmiMnkzqCJ18dZ8"},
-  {"name": "Fontainebleau 2014", "cover": "", "link": "https://photos.app.goo.gl/dz7n8W6N1BHhgBo19"},
-  {"name": "Fontainebleau 2015", "cover": "", "link": "https://photos.app.goo.gl/kkV5DVTewUHudEeL6"},
-  {"name": "Istra", "cover": "", "link": "https://photos.app.goo.gl/UpZy8hrZodBZehBy5"},
-  {"name": "Istra 2008", "cover": "", "link": "https://photos.app.goo.gl/BnTEsUzNT9wKH6kLA"},
-  {"name": "Istra 2009", "cover": "", "link": "https://photos.app.goo.gl/TgXpukuL9YqZbxgd6"},
-  {"name": "Istra 2011", "cover": "", "link": "https://photos.app.goo.gl/ewQep87fqMPHYLqU6"},
-  {"name": "Istra 2013", "cover": "", "link": "https://photos.app.goo.gl/rvAnTwXZgRqCy1Su9"},
-  {"name": "Istra 2015", "cover": "", "link": "https://photos.app.goo.gl/AbyKGQQafrYfjrJK9"},
-  {"name": "Istra 2017", "cover": "", "link": "https://photos.app.goo.gl/ZigrE7WHeFzkzbDz8"},
-  {"name": "Kotečnik", "cover": "", "link": "https://photos.app.goo.gl/RrWcGo7qfe9NPNPC7"},
-  {"name": "Kotečnik 2008", "cover": "", "link": "https://photos.app.goo.gl/3iRYDACPydDZQxXo8"},
-  {"name": "Kotečnik 2010", "cover": "", "link": "https://photos.app.goo.gl/4bQv5EZAdydNCwT29"},
-  {"name": "Kotečnik 2012", "cover": "", "link": "https://photos.app.goo.gl/MyZfGzrfniMduduW7"},
-  {"name": "Ledeno plezanje", "cover": "", "link": "https://photos.app.goo.gl/oThbAhrpq95htFL4A"},
-  {"name": "Mačkovec 2018", "cover": "", "link": "https://photos.app.goo.gl/BzRrxqKEZn5PkvHT6"},
-  {"name": "Magic Wood 2013", "cover": "", "link": "https://photos.app.goo.gl/Mc8XVEVyqrXZekof8"},
-  {"name": "Maltatal 2014", "cover": "", "link": "https://photos.app.goo.gl/HR6QsToUC2o2eiK88"},
-  {"name": "Napoleonica 2008", "cover": "", "link": "https://photos.app.goo.gl/g6s5rdpReSfWvr1q6"},
-  {"name": "Oplotnica 2015", "cover": "", "link": "https://photos.app.goo.gl/jwEs6j3WVWd2Goed9"},
-  {"name": "Peak District", "cover": "", "link": "https://photos.app.goo.gl/6wH29jXEqWFysh3N8"},
-  {"name": "Petrohrad 2015", "cover": "", "link": "https://photos.app.goo.gl/TocQy8Gik37YRmxn6"},
-  {"name": "PKRS stara stena", "cover": "", "link": "https://photos.app.goo.gl/kuUfT3sYj2nLWrtT7"},
-  {"name": "Pod Resko Planino", "cover": "", "link": "https://photos.app.goo.gl/uHEcgxQ8EmrjWSmJ7"},
-  {"name": "Razno", "cover": "", "link": "https://photos.app.goo.gl/zWBhUxywxwkXS7jG8"},
-  {"name": "Razno 2014", "cover": "", "link": "https://photos.app.goo.gl/RyW4TMWdHhPUwwx58"},
-  {"name": "Tekma 2009", "cover": "", "link": "https://photos.app.goo.gl/KMrD7uQiL859UWYR8"},
-  {"name": "Tekma 2011", "cover": "", "link": "https://photos.app.goo.gl/FFr7ARNogWUtrDgq9"},
-  {"name": "Tekma otroci 2015", "cover": "", "link": "https://photos.app.goo.gl/WrX2w7yt3JadJ5sd7"},
-  {"name": "Trenta 2008", "cover": "", "link": "https://photos.app.goo.gl/jGf5Jj4aHoCth4Po6"},
-  {"name": "Trenta 2009", "cover": "", "link": "https://photos.app.goo.gl/EU4QM5x5jsFVp7qH9"},
-  {"name": "Trenta 2011", "cover": "", "link": "https://photos.app.goo.gl/n6Ygu4qCxP8XpGBH8"},
-  {"name": "Trenta 2012", "cover": "", "link": "https://photos.app.goo.gl/f9ChVqfPyM1Cb3rt9"},
-  {"name": "Trenta 2013", "cover": "", "link": "https://photos.app.goo.gl/dkHt9iGhEQG7jNTU6"},
-  {"name": "Trenta 2014", "cover": "", "link": "https://photos.app.goo.gl/XkxkA753sss2fyHw8"},
-  {"name": "Trip 2008", "cover": "", "link": "https://photos.app.goo.gl/xNXXCjwsLPcckBoh7"},
-  {"name": "Wolfsberg", "cover": "", "link": "https://photos.app.goo.gl/Ptmdt5BUbZHB5Ngb9"}
+  {
+    "name": "Trnovo in Trenta 2026",
+    "cover": "assets/img/galerija/albums/trnovo-in-trenta-2026.webp",
+    "link": "https://photos.app.goo.gl/ki5YFdzZ4snJ9FfR6"
+  },
+  {
+    "name": "15. Obletnica PKRS 2016",
+    "cover": "assets/img/galerija/albums/15-obletnica-pkrs-2016.webp",
+    "link": "https://photos.app.goo.gl/61pJMQj37ckFyd7Q8"
+  },
+  {
+    "name": "Albarracin in Chulilla",
+    "cover": "assets/img/galerija/albums/albarracin-in-chulilla.webp",
+    "link": "https://photos.app.goo.gl/VFjUwY8nKesYMdK27"
+  },
+  {
+    "name": "Boč 2009",
+    "cover": "assets/img/galerija/albums/boc-2009.webp",
+    "link": "https://photos.app.goo.gl/9MDyqcgmEgiqXrV69"
+  },
+  {
+    "name": "Boč 2010",
+    "cover": "assets/img/galerija/albums/boc-2010.webp",
+    "link": "https://photos.app.goo.gl/X3DiVfcBuR2zw2uw7"
+  },
+  {
+    "name": "Boč 2011",
+    "cover": "assets/img/galerija/albums/boc-2011.webp",
+    "link": "https://photos.app.goo.gl/5pWBsWcbnXkaD5rK8"
+  },
+  {
+    "name": "Boč 2012",
+    "cover": "assets/img/galerija/albums/boc-2012.webp",
+    "link": "https://photos.app.goo.gl/irFQjvxzfVzRwEf99"
+  },
+  {
+    "name": "Bolder tekma 2012",
+    "cover": "assets/img/galerija/albums/bolder-tekma-2012.webp",
+    "link": "https://photos.app.goo.gl/bJWe3nuPurUi45Ko9"
+  },
+  {
+    "name": "Bovec in Trenta 2010",
+    "cover": "assets/img/galerija/albums/bovec-in-trenta-2010.webp",
+    "link": "https://photos.app.goo.gl/ariKmhcjtFt6Y8Mu9"
+  },
+  {
+    "name": "Buncove skale 2012",
+    "cover": "assets/img/galerija/albums/buncove-skale-2012.webp",
+    "link": "https://photos.app.goo.gl/6jHeSxTDGkFVfC1R6"
+  },
+  {
+    "name": "Burjakove peči",
+    "cover": "assets/img/galerija/albums/burjakove-peci.webp",
+    "link": "https://photos.app.goo.gl/VE7jaz5wwHg7osGi7"
+  },
+  {
+    "name": "Chironico Cresciano 2015",
+    "cover": "assets/img/galerija/albums/chironico-cresciano-2015.webp",
+    "link": "https://photos.app.goo.gl/uow3QuJEdAwfKRcr9"
+  },
+  {
+    "name": "Čreta 2014",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/4nkmiMnkzqCJ18dZ8"
+  },
+  {
+    "name": "Fontainebleau 2014",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/dz7n8W6N1BHhgBo19"
+  },
+  {
+    "name": "Fontainebleau 2015",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/kkV5DVTewUHudEeL6"
+  },
+  {
+    "name": "Istra",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/UpZy8hrZodBZehBy5"
+  },
+  {
+    "name": "Istra 2008",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/BnTEsUzNT9wKH6kLA"
+  },
+  {
+    "name": "Istra 2009",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/TgXpukuL9YqZbxgd6"
+  },
+  {
+    "name": "Istra 2011",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/ewQep87fqMPHYLqU6"
+  },
+  {
+    "name": "Istra 2013",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/rvAnTwXZgRqCy1Su9"
+  },
+  {
+    "name": "Istra 2015",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/AbyKGQQafrYfjrJK9"
+  },
+  {
+    "name": "Istra 2017",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/ZigrE7WHeFzkzbDz8"
+  },
+  {
+    "name": "Kotečnik",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/RrWcGo7qfe9NPNPC7"
+  },
+  {
+    "name": "Kotečnik 2008",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/3iRYDACPydDZQxXo8"
+  },
+  {
+    "name": "Kotečnik 2010",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/4bQv5EZAdydNCwT29"
+  },
+  {
+    "name": "Kotečnik 2012",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/MyZfGzrfniMduduW7"
+  },
+  {
+    "name": "Ledeno plezanje",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/oThbAhrpq95htFL4A"
+  },
+  {
+    "name": "Mačkovec 2018",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/BzRrxqKEZn5PkvHT6"
+  },
+  {
+    "name": "Magic Wood 2013",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/Mc8XVEVyqrXZekof8"
+  },
+  {
+    "name": "Maltatal 2014",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/HR6QsToUC2o2eiK88"
+  },
+  {
+    "name": "Napoleonica 2008",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/g6s5rdpReSfWvr1q6"
+  },
+  {
+    "name": "Oplotnica 2015",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/jwEs6j3WVWd2Goed9"
+  },
+  {
+    "name": "Peak District",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/6wH29jXEqWFysh3N8"
+  },
+  {
+    "name": "Petrohrad 2015",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/TocQy8Gik37YRmxn6"
+  },
+  {
+    "name": "PKRS stara stena",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/kuUfT3sYj2nLWrtT7"
+  },
+  {
+    "name": "Pod Resko Planino",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/uHEcgxQ8EmrjWSmJ7"
+  },
+  {
+    "name": "Razno",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/zWBhUxywxwkXS7jG8"
+  },
+  {
+    "name": "Razno 2014",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/RyW4TMWdHhPUwwx58"
+  },
+  {
+    "name": "Tekma 2009",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/KMrD7uQiL859UWYR8"
+  },
+  {
+    "name": "Tekma 2011",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/FFr7ARNogWUtrDgq9"
+  },
+  {
+    "name": "Tekma otroci 2015",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/WrX2w7yt3JadJ5sd7"
+  },
+  {
+    "name": "Trenta 2008",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/jGf5Jj4aHoCth4Po6"
+  },
+  {
+    "name": "Trenta 2009",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/EU4QM5x5jsFVp7qH9"
+  },
+  {
+    "name": "Trenta 2011",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/n6Ygu4qCxP8XpGBH8"
+  },
+  {
+    "name": "Trenta 2012",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/f9ChVqfPyM1Cb3rt9"
+  },
+  {
+    "name": "Trenta 2013",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/dkHt9iGhEQG7jNTU6"
+  },
+  {
+    "name": "Trenta 2014",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/XkxkA753sss2fyHw8"
+  },
+  {
+    "name": "Trip 2008",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/xNXXCjwsLPcckBoh7"
+  },
+  {
+    "name": "Wolfsberg",
+    "cover": "",
+    "link": "https://photos.app.goo.gl/Ptmdt5BUbZHB5Ngb9"
+  }
 ]
