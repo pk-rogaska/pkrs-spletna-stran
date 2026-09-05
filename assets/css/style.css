@@ -795,6 +795,26 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
 .album-card-link { font-size: 12px; font-weight: 700; color: var(--orange-dark); }
 .album-card-link.is-muted { color: var(--ink-soft); font-weight: 600; }
 
+.video-card-cover { position: relative; background: var(--ink); }
+.video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.video-play svg {
+  width: 46px;
+  height: 46px;
+  padding: 12px;
+  border-radius: 50%;
+  background: rgba(230, 113, 4, 0.9);
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  transition: transform .15s ease, background .15s ease;
+}
+.video-card:hover .video-play svg { transform: scale(1.08); background: var(--orange); }
+
 /* ---------- Contact (Kontakt) ---------- */
 .contact-hero-grid {
   display: grid;

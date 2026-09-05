@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var loadMoreBtn = document.querySelector('[data-load-more]');
   var albumsContainer = document.querySelector('[data-albums-container]');
   var albumsSearch = document.querySelector('[data-albums-search]');
+  var videosGrid = document.querySelector('[data-videos-grid]');
   var carousel = document.querySelector('[data-home-carousel]');
 
   var lightbox, lightboxImg, lightboxIndex = -1;
@@ -238,6 +239,42 @@ document.addEventListener('DOMContentLoaded', function () {
       });
   }
 
+  /* ---------------- Videi (zunanje povezave na YouTube) ---------------- */
+
+  function buildVideoCard(video) {
+    var el = document.createElement('a');
+    el.className = 'album-card video-card';
+    el.href = video.link;
+    el.target = '_blank';
+    el.rel = 'noopener';
+    var coverHtml = video.cover
+      ? '<img src="' + video.cover + '" alt="" loading="lazy">'
+      : '';
+    el.innerHTML =
+      '<div class="album-card-cover video-card-cover">' + coverHtml +
+        '<span class="video-play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' +
+      '</div>' +
+      '<div class="album-card-body">' +
+        '<span class="album-card-name">' + video.name + '</span>' +
+        '<span class="album-card-link">Poglej video na YouTube ↗</span>' +
+      '</div>';
+    return el;
+  }
+
+  function initVideos() {
+    if (!videosGrid) return;
+    fetchJSON('assets/data/videos.json')
+      .then(function (videos) {
+        videos = videos || [];
+        if (!videos.length) return;
+        videosGrid.innerHTML = '';
+        videos.forEach(function (video) {
+          videosGrid.appendChild(buildVideoCard(video));
+        });
+      })
+      .catch(function () {});
+  }
+
   /* ---------------- Karusel na Domov strani (iz istih izbranih fotografij) ---------------- */
 
   function initHomeCarousel() {
@@ -266,5 +303,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   initFeaturedGrid();
   initAlbums();
+  initVideos();
   initHomeCarousel();
 });
