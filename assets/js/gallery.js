@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var loadMoreBtn = document.querySelector('[data-load-more]');
   var albumsContainer = document.querySelector('[data-albums-container]');
   var albumsSearch = document.querySelector('[data-albums-search]');
-  var videosGrid = document.querySelector('[data-videos-grid]');
   var carousel = document.querySelector('[data-home-carousel]');
 
   var lightbox, lightboxImg, lightboxIndex = -1;
@@ -142,9 +141,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function buildAlbumCard(album) {
+    var isVideo = album.type === 'video';
     var hasLink = !!album.link;
     var el = document.createElement(hasLink ? 'a' : 'div');
-    el.className = 'album-card';
+    el.className = 'album-card' + (isVideo ? ' video-card' : '');
     el.setAttribute('data-album-name', album.name.toLowerCase());
     if (hasLink) {
       el.href = album.link;
@@ -156,12 +156,16 @@ document.addEventListener('DOMContentLoaded', function () {
     var coverHtml = album.cover
       ? '<img src="' + album.cover + '" alt="" loading="lazy">'
       : '<div class="album-card-ph"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6z"/></svg></div>';
+    var playHtml = isVideo
+      ? '<span class="video-play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>'
+      : '';
+    var linkText = isVideo ? 'Poglej video na YouTube ↗' : 'Poglej celoten album ↗';
     el.innerHTML =
-      '<div class="album-card-cover">' + coverHtml + '</div>' +
+      '<div class="album-card-cover' + (isVideo ? ' video-card-cover' : '') + '">' + coverHtml + playHtml + '</div>' +
       '<div class="album-card-body">' +
         '<span class="album-card-name">' + album.name + '</span>' +
         (hasLink
-          ? '<span class="album-card-link">Poglej celoten album ↗</span>'
+          ? '<span class="album-card-link">' + linkText + '</span>'
           : '<span class="album-card-link is-muted">Povezava bo dodana kmalu</span>') +
       '</div>';
     return el;
@@ -225,54 +229,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function initAlbums() {
     if (!albumsContainer) return;
-    fetchJSON('assets/data/albums.json')
-      .then(function (albums) {
-        renderAlbums(albums || []);
-        if (albumsSearch) {
-          albumsSearch.addEventListener('input', function () {
-            filterAlbums(albumsSearch.value.trim().toLowerCase());
-          });
-        }
-      })
-      .catch(function () {
-        albumsContainer.innerHTML = '<p class="small">Albumov trenutno ni bilo mogoče naložiti.</p>';
+    Promise.all([
+      fetchJSON('assets/data/albums.json').catch(function () { return []; }),
+      fetchJSON('assets/data/videos.json').catch(function () { return []; })
+    ]).then(function (results) {
+      var albums = results[0] || [];
+      var videos = (results[1] || []).map(function (v) {
+        return { name: v.name, cover: v.cover, link: v.link, type: 'video' };
       });
-  }
-
-  /* ---------------- Videi (zunanje povezave na YouTube) ---------------- */
-
-  function buildVideoCard(video) {
-    var el = document.createElement('a');
-    el.className = 'album-card video-card';
-    el.href = video.link;
-    el.target = '_blank';
-    el.rel = 'noopener';
-    var coverHtml = video.cover
-      ? '<img src="' + video.cover + '" alt="" loading="lazy">'
-      : '';
-    el.innerHTML =
-      '<div class="album-card-cover video-card-cover">' + coverHtml +
-        '<span class="video-play" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>' +
-      '</div>' +
-      '<div class="album-card-body">' +
-        '<span class="album-card-name">' + video.name + '</span>' +
-        '<span class="album-card-link">Poglej video na YouTube ↗</span>' +
-      '</div>';
-    return el;
-  }
-
-  function initVideos() {
-    if (!videosGrid) return;
-    fetchJSON('assets/data/videos.json')
-      .then(function (videos) {
-        videos = videos || [];
-        if (!videos.length) return;
-        videosGrid.innerHTML = '';
-        videos.forEach(function (video) {
-          videosGrid.appendChild(buildVideoCard(video));
+      renderAlbums(albums.concat(videos));
+      if (albumsSearch) {
+        albumsSearch.addEventListener('input', function () {
+          filterAlbums(albumsSearch.value.trim().toLowerCase());
         });
-      })
-      .catch(function () {});
+      }
+    }).catch(function () {
+      albumsContainer.innerHTML = '<p class="small">Albumov trenutno ni bilo mogoče naložiti.</p>';
+    });
   }
 
   /* ---------------- Karusel na Domov strani (iz istih izbranih fotografij) ---------------- */
@@ -303,6 +276,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
   initFeaturedGrid();
   initAlbums();
-  initVideos();
   initHomeCarousel();
 });
