@@ -120,6 +120,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  /* ---- Novice: "Prikaži več / Prikaži manj" ----
+     Besedilo novice je privzeto skrčeno na prve tri vrstice; gumb ga razširi
+     oz. znova skrči, brez potrebe po strežniku. */
+  document.querySelectorAll('.news-toggle').forEach(function (btn) {
+    var body = btn.previousElementSibling;
+    if (!body || !body.classList.contains('news-body')) return;
+    btn.addEventListener('click', function () {
+      var collapsed = body.classList.toggle('collapsed');
+      btn.textContent = collapsed ? 'Prikaži več' : 'Prikaži manj';
+      btn.setAttribute('aria-expanded', String(!collapsed));
+    });
+  });
+
   // Omogoči gallery.js, da po zamenjavi slide-ov (prave fotografije namesto
   // placeholderjev) karusel varno znova inicializira.
   window.initCarousel = function (carousel) {
