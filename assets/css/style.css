@@ -667,10 +667,13 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
   justify-self: start;
   align-self: flex-start;
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.55em;
 }
 .news-toggle-label {
+  white-space: nowrap;
   font-size: 12.5px;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -694,6 +697,9 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
 .news-toggle svg {
   display: block;
   transition: transform .2s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .news-toggle svg { transition: none; }
 }
 .news-toggle[aria-expanded="true"] svg {
   transform: rotate(180deg);
