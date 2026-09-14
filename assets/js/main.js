@@ -124,12 +124,16 @@ document.addEventListener('DOMContentLoaded', function () {
      Besedilo novice je privzeto skrčeno na prve tri vrstice; gumb ga razširi
      oz. znova skrči, brez potrebe po strežniku. */
   document.querySelectorAll('.news-toggle').forEach(function (btn) {
-    var body = btn.previousElementSibling;
+    var row = btn.closest('.news-toggle-row');
+    var body = row ? row.previousElementSibling : null;
     if (!body || !body.classList.contains('news-body')) return;
+    var label = row.querySelector('.news-toggle-label');
     btn.addEventListener('click', function () {
       var collapsed = body.classList.toggle('collapsed');
+      var text = collapsed ? 'Prikaži več' : 'Prikaži manj';
       btn.setAttribute('aria-expanded', String(!collapsed));
-      btn.setAttribute('aria-label', collapsed ? 'Prikaži več' : 'Prikaži manj');
+      btn.setAttribute('aria-label', text);
+      if (label) label.textContent = text;
     });
   });
 

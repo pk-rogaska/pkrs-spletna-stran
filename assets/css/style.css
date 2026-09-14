@@ -663,9 +663,21 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
   line-clamp: 3;
   max-height: 4.7em;
 }
-.news-toggle {
+.news-toggle-row {
   justify-self: start;
   align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+}
+.news-toggle-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--orange-dark);
+}
+.news-toggle {
+  flex-shrink: 0;
   width: 30px;
   height: 30px;
   display: flex;
