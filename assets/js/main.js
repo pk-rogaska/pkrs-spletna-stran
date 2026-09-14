@@ -128,8 +128,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!body || !body.classList.contains('news-body')) return;
     btn.addEventListener('click', function () {
       var collapsed = body.classList.toggle('collapsed');
-      btn.textContent = collapsed ? 'Prikaži več' : 'Prikaži manj';
       btn.setAttribute('aria-expanded', String(!collapsed));
+      btn.setAttribute('aria-label', collapsed ? 'Prikaži več' : 'Prikaži manj');
     });
   });
 

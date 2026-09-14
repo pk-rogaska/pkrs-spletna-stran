@@ -666,17 +666,25 @@ p  { font-size: clamp(15px, 1.8vw, 17px); line-height: 1.65; color: var(--ink); 
 .news-toggle {
   justify-self: start;
   align-self: flex-start;
-  width: fit-content;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--orange);
   color: var(--white);
   border: none;
-  border-radius: 999px;
-  padding: 0.4em 1.1em;
-  font-size: 12.5px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  border-radius: 50%;
+  padding: 0;
   cursor: pointer;
   transition: background .15s ease;
+}
+.news-toggle svg {
+  display: block;
+  transition: transform .2s ease;
+}
+.news-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
 }
 .news-toggle:hover {
   background: var(--orange-dark);
